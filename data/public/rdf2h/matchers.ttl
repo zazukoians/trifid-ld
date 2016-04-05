@@ -168,7 +168,8 @@ r2h:before <title>.
   ];
   r2h:template [
     r2h:context r2h:Default;
-    r2h:mustache '''<div id="header">trifid-ld</div>
+    r2h:mustache '''<div id="header"><img src="/img/admin-logo.png" height="70px" align="left" vspace="15" hspace="10"><p align="right"><h2 align="right">data.admin.ch</h2></p><p align="right">
+Linked Data Pilot</p></div>
         {{{:continue}}}<div id="footer">
             <table align="center" width="30%">
               <tr>

@@ -2,11 +2,10 @@ html {
     font-size: 1em;
 }
 #header {
-    background-color: #53BBF4;
-    color: #fff;
+    background-color: #fff;
+    color: #000;
     width: 100%;
-    font-size: 2em;
-    padding: 1em 3em 1em 1em;
+    padding: 1em 3em 2em 1em;
 }
 #footer {
     background-color: #4298B5;
