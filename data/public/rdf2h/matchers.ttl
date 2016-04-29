@@ -57,6 +57,7 @@ r2h:before <title>.
 
 <main> a r2h:Matcher ;
   r2h:triplePattern [
+    r2h:subject r2h:this;
     r2h:predicate rdf:type;
   ];
   r2h:template [
