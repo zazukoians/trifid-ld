@@ -203,6 +203,15 @@ Linked Data Pilot</p></div>
         var blankBack = [];
         //alert(n.graph);
         //alert(n.node);
+        var dbpediaGraph = [];
+
+        for (var i = n.graph["_graph"].length -1; i >= 0; i--) {
+            if (n.graph["_graph"][i]["subject"]["nominalValue"].match(/dbpedia.org/) !== null) {
+                dbpediaGraph.push(n.graph["_graph"][i]);
+                n.graph["_graph"].splice(i, 1);
+            }
+        }
+
         var nodesToRender = [];
         var renderedNodesToId = new Object();
         nodesToRender.push(n.node);
@@ -287,6 +296,15 @@ Linked Data Pilot</p></div>
             });
            result += '</table></div>'
         };
+
+        if (dbpediaGraph.length > 0) {
+            result += '<div class="LOD">DBpedia</div>';
+
+            for (var j = 0; j < dbpediaGraph.length; j++) {
+                result += '<tr><td width="35%" cellpadding=".1em" valign="top" id="sticky"><b>'+dbpediaGraph[j]["predicate"]["nominalValue"]+'</b></a></td><td width="65%" cellpadding=".1em">'+dbpediaGraph[j]["object"]["nominalValue"]+'<hr /></td>';
+            }
+        }
+
         return result;
     }'''
   ].
