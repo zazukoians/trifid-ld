@@ -71,6 +71,12 @@ module.exports = {
       endpointUrl:'http://localhost:3030/tbbt/sparql'
     }
   },
+  sparqlDBpediaProxy: {
+    path: '/dbpedia',
+    options: {
+      endpointUrl: 'http://dbpedia.org/sparql'
+    }
+  },
   sparqlSearch: {
     path: '/query',
     options: {
@@ -80,6 +86,20 @@ module.exports = {
       variables: {
         'q': {
           variable: '%searchstring%',
+          required: true
+        }
+      }
+    }
+  },
+  sparqlDBpediaSearch: {
+    path: '/dbpedia-query',
+    options: {
+      endpointUrl: 'http://dbpedia.org/sparql',
+      resultsPerPage: 1000,
+      queryTemplate: fs.readFileSync(path.join(__dirname, 'data/sparql/search-dbpedia.sparql')).toString(),
+      variables: {
+        'q': {
+          variable: 'searchstring',
           required: true
         }
       }
