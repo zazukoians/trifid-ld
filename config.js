@@ -9,7 +9,8 @@ global.rdf = require('rdf-ext')(rdf);
 var
   fs = require('fs'),
   graphSplit = require('./lib/graph-split')(rdf),
-  url = require('url');
+  url = require('url'),
+  path = require('path');
 
 
 var init = function () {
@@ -107,6 +108,20 @@ module.exports = {
   },
   patchHeaders: {
     patchResponse: patchResponseHeaders
+  },
+  sparqlDBpediaSearch: {
+    path: '/dbpedia-query',
+    options: {
+      endpointUrl: 'http://dbpedia.org/sparql',
+      resultsPerPage: 1000,
+      queryTemplate: fs.readFileSync(path.join(__dirname, 'data/sparql/search-dbpedia.sparql')).toString(),
+      variables: {
+        'q': {
+          variable: 'searchstring',
+          required: true
+        }
+      }
+    }
   },
   init: init,
   HandlerClass: require('./lib/ldp-module-handler'),

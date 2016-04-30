@@ -13,6 +13,7 @@
         <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="//cdn.rawgit.com/rdf2h/ld2h/v0.3.0/dist/ld2h.js"></script>
         <script src="//cdn.rawgit.com/retog/rdf-store-ldp-browser/v0.3.0-rc2f/dist/rdf-store-ldp.js"></script>
+        <script src="../../js/dbpedia.js"></script>
     </head>
     <body>
 
@@ -24,7 +25,16 @@
                 })
             });
             LD2h.store = store;
-            LD2h.expand();
+
+            var data = $("#data");
+            var sameAsEntity = data[0].firstChild.data.match(/<http:\/\/www.w3.org\/2002\/07\/owl#sameAs> <http:\/\/dbpedia.org\/resource\/([^>]+)>/);
+            if (sameAsEntity !== null) {
+                dbpediaGet(sameAsEntity[1], function () {
+                    LD2h.expand();
+                });
+            } else {
+                LD2h.expand();
+            }
         });
         </script>
 

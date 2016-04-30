@@ -1,0 +1,4 @@
+CONSTRUCT { <http://dbpedia.org/resource/searchstring> ?b ?c } WHERE
+{
+  <http://dbpedia.org/resource/searchstring> ?b ?c .
+}

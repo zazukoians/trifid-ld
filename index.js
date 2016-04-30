@@ -50,8 +50,16 @@ config.init()
       app.use(config.sparqlProxy.path, sparqlProxy(config.sparqlProxy.options));
     }
 
+    if ('sparqlDBpediaProxy' in config) {
+      app.use(config.sparqlDBpediaProxy.path, sparqlProxy(config.sparqlDBpediaProxy.options));
+    }
+
     if ('sparqlSearch' in config) {
       app.use(config.sparqlSearch.path, sparqlSearch(config.sparqlSearch.options));
+    }
+
+    if ('sparqlDBpediaSearch' in config) {
+      app.use(config.sparqlDBpediaSearch.path, sparqlSearch(config.sparqlDBpediaSearch.options));
     }
 
     app.use(renderHtmlMiddleware(handler));
