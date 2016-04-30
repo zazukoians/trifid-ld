@@ -62,9 +62,12 @@ hr.baffone:before {
 .LOD {
     background-color: #28ABE3;
     color: #fff;
-    font-size: 2em;
+    font-size: 1.1em;
     width: 100%;
     padding: 1em 3em 1em 2em;
+}
+.LOD a{
+    color: #fff;
 }
 
 

@@ -13,6 +13,7 @@
         <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="//cdn.rawgit.com/rdf2h/ld2h/v0.3.0/dist/ld2h.js"></script>
         <script src="//cdn.rawgit.com/retog/rdf-store-ldp-browser/v0.3.0-rc2f/dist/rdf-store-ldp.js"></script>
+        <script src="../../js/dbpedia.js"></script>
     </head>
     <body>
 
@@ -24,10 +25,11 @@
                 })
             });
             LD2h.store = store;
-            LD2h.expand();
+            dbpediaGet("Sheldon_Cooper", function () {
+                LD2h.expand();
+            });
         });
         </script>
-        <script src="../../js/dbpedia.js"></script>
 
     </body>
 </html>
